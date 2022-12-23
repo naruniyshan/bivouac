@@ -7,8 +7,9 @@
     padding: 0;
 }
 
-body {
-    
+html,body {
+    width: 100%;
+    height: 100%;
 }
 
 /* 呼叫標籤，直接輸入標籤名稱；呼叫 ID，在 ID 前輸入「#」 */
@@ -17,7 +18,7 @@ section {
     width: 100%;
     
     /* 高度的尺寸 絕對：px 相對： %（不會自動將高度展開） vh（裝置的高度，會自動展開）；這兩個單位不要混用 */
-    height: 100vh;
+    height: 100%;
 
     /* 背景顏色 background-color */
     background-color: cadetblue;
