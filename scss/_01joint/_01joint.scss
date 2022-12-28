@@ -1,5 +1,5 @@
 // 匯入檔案在所有資料的最前面
-@import '_00variable.scss';
+@use '00variable' as Var;
 
 // 將邊界與間距的預設值歸零
 // 通用元素「*」；最高階設定
@@ -15,6 +15,6 @@
 
 html,
 body {
-    width: $W10 * 10%;
+    width: Var.$W10 * 10%;
     height: 100%;
 }

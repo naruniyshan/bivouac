@@ -1,10 +1,12 @@
+@use '../_01joint/00variable' as Var;
+@use '../_01joint/02mixin' as Mixin;
 //  呼叫標籤（類型選擇器），直接輸入標籤名稱；呼叫 ID（ID選擇器），在 ID 前輸入「#」 
 section {
     //  寬度的尺寸 絕對：px  相對： % vw（裝置的寬度）；這兩個單位不要混用 
-    width: $W10 * 10%;
+    width: Var.$W10 * 10%;
 
     //  高度的尺寸 絕對：px 相對： %（不會自動將高度展開） vh（裝置的高度，會自動展開）；這兩個單位不要混用 
-    height: $W10 * 10%;
+    height: Var.$W10 * 10%;
 
     //背景顏色 background-color 
     background-color: cadetblue;
@@ -13,13 +15,32 @@ section {
 
     header {
         // height: $H * 4;
-        @include calcH(0.5%,3.5);
+        @include Mixin.calcH(0.5%,4.5);
         background-color: burlywood;
+
+        // 選單 Logo 與 聯絡區塊；1. 選單與Logo要在同一列；聯絡區塊自行一列
+        // 彈性佈局 flex；啟動方式，要撰寫在物件的父框架
+        // 顯示方式：flex；彈性佈局要換行
+        display: flex;
+        flex-wrap: wrap;
+        @include Mixin.CalcColumnTwo(1.2%);
+        
+        > h1 {
+            // 文字置中
+            text-align: center;
+        }
+        .menu {
+            // 文字尺寸； 絕對值單位：px（一般文字的預設值 16px） | 相對值單位： % em rem（1rem = 16px）
+            font-size: 4rem;
+            color: orangered;
+            // 隱藏項目符號
+            list-style-type: none;
+        }
     }
 
     main {
         // height: 100% - ( $H * 4 ) - ( $H + $F );
-        @include calcMH(0.5%, 3.5, 1.5%);
+        @include Mixin.calcMH(0.5%, 4.5, 1.5%);
         background-color: orangered;
     }
 
@@ -27,7 +48,7 @@ section {
     // 子選擇器
     footer {
         // height: $H + $F;
-        @include calcFH(0.5%, 1.5%);
+        @include Mixin.calcFH(0.5%, 1.5%);
         
         > li {
             // 設定文字顏色
