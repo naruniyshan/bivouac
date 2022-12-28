@@ -23,7 +23,7 @@ section {
         // 顯示方式：flex；彈性佈局要換行
         display: flex;
         flex-wrap: wrap;
-        @include Mixin.CalcColumnTwo(1.2%);
+        @include Mixin.CalcColumnTwo(1.5%);
         
         > h1 {
             // 文字置中
@@ -31,10 +31,22 @@ section {
         }
         .menu {
             // 文字尺寸； 絕對值單位：px（一般文字的預設值 16px） | 相對值單位： % em rem（1rem = 16px）
-            font-size: 4rem;
-            color: orangered;
             // 隱藏項目符號
             list-style-type: none;
+
+            // 背景取代文字顯示
+            // 1.讀取背景圖片（相對路徑） 2.取消重複排列  3.將文字移至裝置之外，文字首行縮排
+            // 4.圖片水平垂直置（背景圖片的定位點） 5.背景圖片的尺寸
+            background-image: url(../../images/icons/list.svg);
+
+            background-repeat: no-repeat;
+
+            background-position: center;
+
+            // auto（預設值）| contain（內縮）| cover（覆蓋）
+            background-size: contain;
+
+            text-indent: -9999px;
         }
     }
 

@@ -25,19 +25,22 @@ body {
         flex-wrap: wrap;
   }
   section header > li {
-    width: 12%;
+    width: 15%;
     background-color: aquamarine;
   }
   section header > h1 {
-    width: 88%;
+    width: 85%;
   }
   section header > h1 {
     text-align: center;
   }
   section header .menu {
-    font-size: 4rem;
-    color: orangered;
     list-style-type: none;
+    background-image: url(../../images/icons/list.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    text-indent: -9999px;
   }
   section main {
     height: 71%;
