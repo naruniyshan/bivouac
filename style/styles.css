@@ -31,9 +31,6 @@ body {
   section header > h1 {
     width: 85%;
   }
-  section header > h1 {
-    text-align: center;
-  }
   section header .menu {
     list-style-type: none;
     background-image: url(../../images/icons/list.svg);
@@ -42,9 +39,45 @@ body {
     background-size: contain;
     text-indent: -9999px;
   }
+  section header > h1 {
+    text-align: center;
+    font-size: 2rem;
+    background-color: orangered;
+  }
+  section header > h1 > li {
+    margin-top: 0.8510638298rem;
+    list-style-type: none;
+  }
+  section header > ul {
+    width: 100%;
+    list-style-type: none;
+    background-color: cadetblue;
+  }
+  section header > ul > li {
+    width: 90%;
+    text-align: right;
+    background-color: orange;
+  }
+  section header > ul > .WebName {
+    margin-top: 0.6rem;
+  }
   section main {
     height: 71%;
     background-color: orangered;
+  }
+  section main > nav {
+    width: 95%;
+    height: 100%;
+    list-style-type: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  section main > nav > li {
+    width: 50%;
+    height: 30%;
   }
   section footer {
     height: 6.5%;

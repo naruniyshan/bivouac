@@ -14,7 +14,6 @@ section {
     // 頁首 header 子孫選擇器（只要在父框架之下的相同標籤，都會被指定；例： section header，標籤之間要空格）
 
     header {
-        // height: $H * 4;
         @include Mixin.calcH(0.5%,4.5);
         background-color: burlywood;
 
@@ -24,29 +23,56 @@ section {
         display: flex;
         flex-wrap: wrap;
         @include Mixin.CalcColumnTwo(1.5%);
-        
-        > h1 {
-            // 文字置中
-            text-align: center;
-        }
         .menu {
             // 文字尺寸； 絕對值單位：px（一般文字的預設值 16px） | 相對值單位： % em rem（1rem = 16px）
             // 隱藏項目符號
             list-style-type: none;
-
+    
             // 背景取代文字顯示
             // 1.讀取背景圖片（相對路徑） 2.取消重複排列  3.將文字移至裝置之外，文字首行縮排
             // 4.圖片水平垂直置（背景圖片的定位點） 5.背景圖片的尺寸
             background-image: url(../../images/icons/list.svg);
-
+    
+            // repeat（預設值-填滿）| no-repeat（不要重複）| repeat-x（水平）| repeat-y（垂直）| space（水平及垂直方向重複排列，同時調整背景圖片的間距）
             background-repeat: no-repeat;
-
+    
+            // 定位點 
+            // 水平方向： 長度 | 百分比 | left | center | right
+            // 垂直方向： 長度 | 百分比 | top | center | bottom
             background-position: center;
-
-            // auto（預設值）| contain（內縮）| cover（覆蓋）
+    
+            // 尺寸
+            // 長度（寬高可以各別設定） 百分比（寬高可以各別設定） auto
+            // contain 背景圖片的大小剛好符合 HTML元素的範圍 - 內距
+            // cover 背景圖片的大小覆蓋整個 HTML元素的範圍 - 滿版
             background-size: contain;
-
+    
+            // 文字首行縮排
             text-indent: -9999px;
+            }
+        > h1 {
+            // 文字置中
+            text-align: center;
+            // 重新設計文字尺寸
+            font-size: 1rem * 2;
+            background-color: orangered;
+            > li {
+                margin-top: calc(( 1rem * 2 ) / 2.35);
+                list-style-type: none;
+            }
+        }
+        > ul {
+            width: Var.$W10 * 10%;
+            list-style-type: none;
+            background-color: cadetblue;
+            > li {
+                width: Var.$W10 * 9%;
+                text-align: right;
+                background-color: orange;
+            }
+            > .WebName {
+                margin-top: calc(1rem * 0.6);
+            }
         }
     }
 
@@ -54,6 +80,17 @@ section {
         // height: 100% - ( $H * 4 ) - ( $H + $F );
         @include Mixin.calcMH(0.5%, 4.5, 1.5%);
         background-color: orangered;
+        > nav {
+            width: Var.$W10 * 9.5%;
+            height: 100%;
+            list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            > li {
+                width: Var.$W10 * 5%;
+                height: 30%;
+            }
+        }
     }
 
 
