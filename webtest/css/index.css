@@ -1,0 +1,63 @@
+/* 手機用 576px 以下 */
+#Index {
+    width: calc(var(--W) * 10);
+    /* height: 100%; */
+    background-color: rgb(138, 173, 248);
+}
+
+#Index>h1 {
+    /* 寬度 */
+    width: 100%;
+    /* 高度 */
+    height: 40%;
+    /* 文字顏色 */
+    color: var(--ColorBlueviolet);
+    /* 文字尺寸 */
+    font-size: calc(var(--FontSize) * 2.5);
+    /* 背景顏色 */
+    background-color: burlywood;
+}
+
+#Index>nav {
+    width: 80%;
+    font-size: 32px;
+    /* 文字粗細 */
+    font-weight: 800;
+    list-style-type: none;
+}
+
+/* 子選擇器 1.可以減少設定 id or class 名稱  2.減少同標籤呼叫的錯誤 */
+#Index>nav>#one>a {}
+
+/* 假設 576以下版本，不顯示 #Box */
+#Box {
+    display: none;
+}
+
+/* 媒體判斷 -- 媒介承載的硬體（手機、平版、螢幕、印表機、電視） */
+@media screen and (min-width: 576px) {
+
+    #Index>h1 {
+        /* 文字顏色 */
+        color: var(--ColorBrown);
+        /* 文字尺寸 */
+        font-size: calc(var(--FontSize) * 2);
+        /* 背景顏色 */
+        background-color: rgb(222, 135, 215);
+    }
+
+    #Box {
+        /* 顯式方式：區塊 */
+        display: block;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    #Index>h1 {
+        /* 文字尺寸 */
+        font-size: calc(var(--FontSize) * 1.8);
+        /* 背景顏色 */
+        background-color: rgb(247, 248, 162);
+    }
+}
