@@ -32,28 +32,37 @@ header #menu {
   text-indent: -9999px;
   background-color: blue;
 }
+header h1 {
+  width: 85%;
+  background-color: rosybrown;
+}
+header ul {
+  width: 100%;
+}
+
 @media screen and (min-width: 576px) {
   header #menu {
     width: 13%;
     background-color: rgb(255, 208, 0);
   }
+  header h1 {
+    width: 87%;
+    background-color: rosybrown;
+  }
+  header ul {
+    width: 100%;
+  }
 }
 @media screen and (min-width: 768px) {
-  header #menu {
+  #menu {
     width: 13%;
     background-color: rgb(140, 0, 255);
   }
-}
-header h1 {
-  width: 85%;
-  background-color: rosybrown;
-}
-@media screen and (min-width: 576px) {
-  header h1 {
+  h1 {
     width: 87%;
     background-color: rgb(143, 188, 182);
   }
-}
-header ul {
-  width: 100%;
+  ul {
+    width: 100%;
+  }
 }

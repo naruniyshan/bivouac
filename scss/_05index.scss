@@ -1,9 +1,10 @@
 // 讀取 變數 檔案 ；@use 區域性；一次性；規則 檔案要另給名稱；基於檔案的安全性；要放置在所有語法最上層
 @use '_01variable/variable' as Var;
+@use '_02mixin/media' as R;
 // 滿版設計 section id="bivouac"；設定寬 100 高 100 背景顏色
 #bivouac {
-    width: Var.$Num10 * 10 *$Per;
-    height: Var.$Num10 * 10 * $Per;
+    width: Var.$Num10 * 10 * Var.$Per;
+    height: Var.$Num10 * 10 * Var.$Per;
     background-color: burlywood;
 }
 // 子選擇器（指定階層 > ；同層之中不能有相同的標籤，若有相同需設定 id or class）；子孫選擇器（跨標籤讀取 利用「空格」；不論哪一層物件，需設定 id or class）
@@ -15,6 +16,7 @@ header {
     // 換行，將子物件設定為 兩列；預設值會自動判斷 子物件 的寬度（均分）；要設定 子物件 的寬度才會有做用
     flex-wrap: wrap;
     list-style-type: none;
+
     #menu {
         width: Var.$Num10 * 1.5%;
         height: 50px;
@@ -30,24 +32,64 @@ header {
         background-size: contain;
         text-indent: -9999px;
         background-color: blue;
-        @media screen and (min-width: $Width-Small) {
-            width: Var.$Num10 * 1.3%;
-            background-color: rgb(255, 208, 0);
-        }
-        @media screen and (min-width: $Width-Medium) {
-            width: Var.$Num10 * 1.3%;
-            background-color: rgb(140, 0, 255);
-        }
+        // #{} 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
+
+        // @include R.Rwd(md) {
+        //     width: Var.$Num10 * 1.3%;
+        //     background-color: rgb(140, 0, 255);
+        // }
     }
+
     h1 {
         width: Var.$Num10 * 8.5%;
         background-color: rosybrown;
-        @media screen and (min-width: $Width-Small) {  
-            width: $Num10 * 8.7%;
-            background-color: rgb(143, 188, 182);
-        }   
+        // @include R.Rwd(sm) {
+        //     width: Var.$Num10 * 8.7%;
+        //     background-color: rgb(143, 188, 182);
+        // }
     }
+
     ul {
         width: Var.$Num10 * 10%;
     }
 }
+
+// #{} 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
+ @include R.Rwd(sm) {
+    header {    
+        #menu {
+            width: Var.$Num10 * 1.3%;
+            background-color: rgb(255, 208, 0);
+        }
+
+        h1 {
+            width: Var.$Num10 * 8.7%;
+            background-color: rosybrown;
+
+            // @include R.Rwd(sm) {
+            //     width: Var.$Num10 * 8.7%;
+            //     background-color: rgb(143, 188, 182);
+            // }
+        }
+
+        ul {
+            width: Var.$Num10 * 10%;
+        }
+    }
+ }
+
+ @include R.Rwd(md) {
+    #menu {
+        width: Var.$Num10 * 1.3%;
+        background-color: rgb(140, 0, 255);
+    }
+
+    h1 {
+        width: Var.$Num10 * 8.7%;
+        background-color: rgb(143, 188, 182);
+    }
+
+    ul {
+        width: Var.$Num10 * 10%;
+    }
+ }
