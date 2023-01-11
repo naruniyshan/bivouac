@@ -1,6 +1,7 @@
 // 讀取 變數 檔案 ；@use 區域性；一次性；規則 檔案要另給名稱；基於檔案的安全性；要放置在所有語法最上層
 @use '_01variable/variable' as Var;
-@use '_02mixin/media' as R;
+@use '_02mixin/_01media' as R;
+@use '_02mixin/02images' as Img;
 // 滿版設計 section id="bivouac"；設定寬 100 高 100 背景顏色
 #bivouac {
     width: Var.$Num10 * 10 * Var.$Per;
@@ -28,12 +29,13 @@
             // 背景圖片取代文字顯示，背景圖片的對齊，可以輕易達到 水平垂直置中 的排列方式
             // 1. 設定背景圖片連結 2.背景圖片不重複顯示 3.背景圖片的對齊（定位點 X Y - 水平垂直置中）
             // 4. 位移文字（首行縮排 - 單行文字 或者 段落文字的第一行） 5.圖片尺寸設定（預設值：自動）
-            background-image: url(../images/icons/list.svg);
-            background-repeat: no-repeat;
-            background-position: center;
+            // background-image: url(../images/icons/list.svg);
+            // background-repeat: no-repeat;
+            // background-position: center;
             // auto（預設值：自動） cover（滿版覆蓋框架尺寸） contain（滿版留白）| 各別設 x y 的值（例如：background-size: 50% 30%;）| 單位：px %
-            background-size: contain;
-            text-indent: -9999px;
+            // background-size: contain;
+            // text-indent: -9999px;
+            @include Img.Images(center, contain, icons, "list.svg");
             background-color: blue;
             // #{} 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
 
@@ -82,19 +84,19 @@
 }
 
 @include R.Rwd(md) {
- header {
-    #menu {
-        width: Var.$Num10 * 1.3%;
-        background-color: rgb(140, 0, 255);
-    }
+    header {
+        #menu {
+            width: Var.$Num10 * 1.3%;
+            background-color: rgb(140, 0, 255);
+        }
 
-    h1 {
-        width: Var.$Num10 * 8.7%;
-        background-color: rgb(143, 188, 182);
-    }
+        h1 {
+            width: Var.$Num10 * 8.7%;
+            background-color: rgb(143, 188, 182);
+        }
 
-    ul {
-        width: Var.$Num10 * 10%;
+        ul {
+            width: Var.$Num10 * 10%;
+        }
     }
- }
 }
