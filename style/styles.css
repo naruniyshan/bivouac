@@ -13,33 +13,34 @@ html, body {
   background-color: burlywood;
 }
 
-header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  list-style-type: none;
+@media screen and (min-width: 0px) {
+  header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    list-style-type: none;
+  }
+  header #menu {
+    width: 15%;
+    height: 50px;
+    color: rebeccapurple;
+    background-image: url(../images/icons/list.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    text-indent: -9999px;
+    background-color: blue;
+  }
+  header h1 {
+    width: 85%;
+    background-color: rosybrown;
+  }
+  header ul {
+    width: 100%;
+  }
 }
-header #menu {
-  width: 15%;
-  height: 50px;
-  color: rebeccapurple;
-  background-image: url(../images/icons/list.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-  text-indent: -9999px;
-  background-color: blue;
-}
-header h1 {
-  width: 85%;
-  background-color: rosybrown;
-}
-header ul {
-  width: 100%;
-}
-
 @media screen and (min-width: 576px) {
   header #menu {
     width: 13%;
@@ -54,15 +55,15 @@ header ul {
   }
 }
 @media screen and (min-width: 768px) {
-  #menu {
+  header #menu {
     width: 13%;
     background-color: rgb(140, 0, 255);
   }
-  h1 {
+  header h1 {
     width: 87%;
     background-color: rgb(143, 188, 182);
   }
-  ul {
+  header ul {
     width: 100%;
   }
 }
