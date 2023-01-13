@@ -9,7 +9,6 @@ html, body {
 
 #bivouac {
   width: 100%;
-  height: 100%;
   background-color: burlywood;
 }
 
@@ -65,5 +64,27 @@ html, body {
   }
   header ul {
     width: 100%;
+  }
+}
+@media screen and (min-width: 992px) {
+  #bivouac {
+    height: 100%;
+  }
+  header {
+    width: 40%;
+    height: 100%;
+    float: left;
+    background-color: brown;
+  }
+  main, #main {
+    width: 60%;
+    float: right;
+    background-color: olivedrab;
+  }
+  footer {
+    width: 60%;
+    height: 20%;
+    float: right;
+    background-color: goldenrod;
   }
 }
