@@ -102,13 +102,17 @@
 }
 
 @include R.Rwd(lg) {
+    // 需在 html 內，浮動對齊物件的外框架，最後再新增一個假框，套用類別
+    .clearfix {
+        clear: both;
+    }
     #bivouac {
-        height: Var.$Num10 * 10%;
+        // height: Var.$Num10 * 10%;
     }
     // 浮動語法 float；會脫離原來的父框架
     header {
         width: Var.$Num10 * 4%;
-        height: Var.$Num10 * 10%;
+        // height: Var.$Num10 * 10%;
         float: left;
         background-color: brown;
     }

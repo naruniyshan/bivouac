@@ -67,12 +67,11 @@ html, body {
   }
 }
 @media screen and (min-width: 992px) {
-  #bivouac {
-    height: 100%;
+  .clearfix {
+    clear: both;
   }
   header {
     width: 40%;
-    height: 100%;
     float: left;
     background-color: brown;
   }
