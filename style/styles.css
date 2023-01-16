@@ -67,7 +67,9 @@ html, body {
   }
 }
 @media screen and (min-width: 992px) {
-  .clearfix {
+  .clearfix::after {
+    content: "";
+    display: block;
     clear: both;
   }
   header {

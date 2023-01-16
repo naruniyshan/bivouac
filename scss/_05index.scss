@@ -102,12 +102,17 @@
 }
 
 @include R.Rwd(lg) {
-    // 需在 html 內，浮動對齊物件的外框架，最後再新增一個假框，套用類別
-    .clearfix {
-        clear: both;
-    }
+
     #bivouac {
         // height: Var.$Num10 * 10%;
+    }
+    // 利用偽元素 ::after（之後）來處理浮動問題
+    .clearfix::after {
+        // 新增 content 空物件
+        content: "";
+        // 顯示的方式:區塊
+        display: block;
+        clear: both;
     }
     // 浮動語法 float；會脫離原來的父框架
     header {
