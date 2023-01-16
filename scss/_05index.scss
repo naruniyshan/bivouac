@@ -5,7 +5,7 @@
 // 滿版設計 section id="bivouac"；設定寬 100 高 100 背景顏色
 #bivouac {
     width: Var.$Num10 * 10 * Var.$Per;
-    // height: Var.$Num10 * 10 * Var.$Per;
+    height: Var.$Num10 * 10 * Var.$Per;
     background-color: burlywood;
 }
 // 子選擇器（指定階層 > ；同層之中不能有相同的標籤，若有相同需設定 id or class）；子孫選擇器（跨標籤讀取 利用「空格」；不論哪一層物件，需設定 id or class）
@@ -46,17 +46,66 @@
         }
 
         h1 {
+            // h1（2em 32px） h2（1.5em 24px） h3（1em 16px）
             width: Var.$Num10 * 8.5%;
-            background-color: rosybrown;
-            // @include R.Rwd(sm) {
-            //     width: Var.$Num10 * 8.7%;
-            //     background-color: rgb(143, 188, 182);
-            // }
+            height: 50px;
+            text-align: center;
+            background-color: red;
+            li {
+                margin-top: calc( (50px - 32px) / 2 );
+            }
         }
 
         ul {
             width: Var.$Num10 * 10%;
         }
+
+        nav {
+            width: Var.$Num10 * 10%;
+            height: Var.$Num10 * 10%;
+            // 層疊樣式表 z 軸 數值；值越小，層越低；值越大，層越高
+            z-index: Var.$ZNum99;
+            // 需配合 定位點：絕對
+            position: absolute;
+            // 背景顏色
+            background-color: white;
+
+            #menuheader {
+                height: Var.$Num10 * 1.5%;
+                background-color: aquamarine;
+
+                #close {
+                    width: Var.$Num10 * 10%;
+                    background-color: brown;
+                    a{
+                        // 顯示方式：行區塊
+                        display: inline-block;
+                        // 文字尺寸取代高度
+                        font-size: 1.5rem;
+                        // 文字設定內間距
+                        padding: 1%;
+                        // 浮動元素
+                        float: right;
+                        background-color: red;
+                    }
+                }
+                #close::after {
+                    content: "";
+                    display: block;
+                    clear: both;
+                }
+            }
+            #menunav {
+                height: Var.$Num10 * 7%;
+            }
+            #menuicon {
+                height: Var.$Num10 * 1.5%;
+            }
+        }
+    }
+
+    footer {
+        font-size: 0.9rem;
     }
 }
 
@@ -69,7 +118,6 @@
 
         h1 {
             width: Var.$Num10 * 8.7%;
-            background-color: rosybrown;
 
             // @include R.Rwd(sm) {
             //     width: Var.$Num10 * 8.7%;
@@ -92,7 +140,6 @@
 
         h1 {
             width: Var.$Num10 * 8.7%;
-            background-color: rgb(143, 188, 182);
         }
 
         ul {
@@ -102,68 +149,9 @@
 }
 
 @include R.Rwd(lg) {
+    // @include R.FloatBox();
 
-    #bivouac {
-        // height: Var.$Num10 * 10%;
-    }
-    // 利用偽元素 ::after（之後）來處理浮動問題
-    .clearfix::after {
-        // 新增 content 空物件
-        content: "";
-        // 顯示的方式:區塊
-        display: block;
-        clear: both;
-    }
-    // 浮動語法 float；會脫離原來的父框架
-    header {
-        width: Var.$Num10 * 4%;
-        // height: Var.$Num10 * 10%;
-        float: left;
-        background-color: brown;
-    }
+    @include R.FlexBox();
 
-    main, #main {
-        width: Var.$Num10 * 6%;
-        // height: Var.$Num10 * 8%;
-        float: right;
-        background-color: olivedrab;
-    }
 
-    footer {
-        width: Var.$Num10 * 6%;
-        height: Var.$Num10 * 2%;
-        float: right;
-        background-color: goldenrod;
-    }
-
-    // #bivouac {
-    //     display: flex;
-    //     flex-wrap: wrap;
-    // }
-
-    // header {
-    //     width: Var.$Num10 * 4%;
-    //     height: Var.$Num10 * 10%;
-    //     background-color: brown;
-    // }
-
-    // main, #main {
-    //     width: Var.$Num10 * 6%;
-    //     height: Var.$Num10 * 8%;
-    //     background-color: olivedrab;
-
-    //     nav {
-    //         background-color: blueviolet;
-    //     }
-    // }
-
-    // footer {
-    //     width: Var.$Num10 * 6%;
-    //     height: Var.$Num10 * 2%;
-    //     // 定位方式 絕對位置 依照 body 為對齊原點
-    //     position: absolute;
-    //     right: 0;
-    //     bottom: 0;
-    //     background-color: goldenrod;
-    // }
 }
