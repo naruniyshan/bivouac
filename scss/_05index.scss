@@ -1,11 +1,11 @@
 // 讀取 變數 檔案 ；@use 區域性；一次性；規則 檔案要另給名稱；基於檔案的安全性；要放置在所有語法最上層
-@use '_01variable/variable' as Var;
+@use '_01variable/variable' as V;
 @use '_02mixin/_01media' as R;
 @use '_02mixin/02images' as Img;
 // 滿版設計 section id="bivouac"；設定寬 100 高 100 背景顏色
 #bivouac {
-    width: Var.$Num10 * 10 * Var.$Per;
-    height: Var.$Num10 * 10 * Var.$Per;
+    width: V.$Num10 * 10 * V.$Per;
+    height: V.$Num10 * 10 * V.$Per;
     background-color: burlywood;
 }
 // 子選擇器（指定階層 > ；同層之中不能有相同的標籤，若有相同需設定 id or class）；子孫選擇器（跨標籤讀取 利用「空格」；不論哪一層物件，需設定 id or class）
@@ -22,7 +22,7 @@
         list-style-type: none;
 
         #menu {
-            width: Var.$Num10 * 1.5%;
+            width: V.$Num10 * 1.5%;
             height: 50px;
             // 文字顏色
             color: rebeccapurple;
@@ -40,14 +40,14 @@
             // #{} 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
 
             // @include R.Rwd(md) {
-            //     width: Var.$Num10 * 1.3%;
+            //     width: V.$Num10 * 1.3%;
             //     background-color: rgb(140, 0, 255);
             // }
         }
 
-        h1 {
+        > h1 {
             // h1（2em 32px） h2（1.5em 24px） h3（1em 16px）
-            width: Var.$Num10 * 8.5%;
+            width: V.$Num10 * 8.5%;
             height: 50px;
             text-align: center;
             background-color: red;
@@ -57,49 +57,83 @@
         }
 
         ul {
-            width: Var.$Num10 * 10%;
+            width: V.$Num10 * 10%;
         }
 
         nav {
-            width: Var.$Num10 * 10%;
-            height: Var.$Num10 * 10%;
-            // 層疊樣式表 z 軸 數值；值越小，層越低；值越大，層越高
-            z-index: Var.$ZNum99;
-            // 需配合 定位點：絕對
+            width: V.$Num10 * 10%;
+            height: V.$Num10 * 10%;
+            // 重（層）疊順序 設定值 auto（自動） | 整數（數字越大，重（層）疊順序越上層
+            z-index: V.$ZNum99;
+            // 需配合定位點：絕對值
             position: absolute;
-            // 背景顏色
             background-color: white;
 
+            // 父框架設置定位點 relative，子物件設置定位點 absolute，系統會將「body」的原點位置，重新訂給「父框架」使用
             #menuheader {
-                height: Var.$Num10 * 1.5%;
-                background-color: aquamarine;
+                height: V.$Num10 * 2%;
+                // position: relative;
+                display: flex;
+                // 水平置中
+                justify-content: center;
+                // 垂直置中
+                align-items: center;
+                background-color: V.$Blue-Green;
 
                 #close {
-                    width: Var.$Num10 * 10%;
-                    background-color: brown;
-                    a{
-                        // 顯示方式：行區塊
-                        display: inline-block;
-                        // 文字尺寸取代高度
-                        font-size: 1.5rem;
-                        // 文字設定內間距
-                        padding: 1%;
-                        // 浮動元素
-                        float: right;
-                        background-color: red;
+                    // 顯示方式：inline-block（行內區塊層級）；以內容的寬度為主
+                    display: inline-block;
+                    // 文字尺寸替代高度
+                    font-size: 1.5rem;
+                    // 內間距（留白）
+                    padding: 10px;
+                    // 文字變化 uppercase（全部大寫） lowercase（全部小寫） capitalize（單字的第一個字母大寫
+                    text-transform: uppercase;
+                    background-color: rebeccapurple;
+                    
+                    //small-caps 小型大寫字，會比原本的大寫還要再小再扁一些
+                    // font-variant: small-caps; 
+
+                    // 定位點
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+
+                    // 若與 display: inline-block 一起用，系統將會視為 display:block
+                    // float:right;
+
+                    a {
+                        color: rgb(255, 255, 255);
+                        // 取消文字裝飾（底線）
+                        text-decoration: none;
                     }
                 }
-                #close::after {
-                    content: "";
-                    display: block;
-                    clear: both;
+                > h1 {
+                    font-size: 2rem;
+                    // position: absolute;
+                    // top: 50%;
+                    // left: 50%;
+                    // margin-left: -25%;
+                    // margin-top: -6%;
                 }
             }
+
             #menunav {
-                height: Var.$Num10 * 7%;
+                height: V.$Num10 * 6.5%;
             }
+            
             #menuicon {
-                height: Var.$Num10 * 1.5%;
+                width: V.$Num10 * 8.5%;
+                height: V.$Num10 * 1.5%;
+
+                // 框線 border
+                border-top: {
+                    color: V.$Blue-Green;
+                    width: 2px;
+                    // solid 實線；double 雙線；dashed 虛線；dotted 圓點虛線
+                    // inset 內陰影；outset 外陰影；groove 浮凸 ；ridge 內凹
+                    style: solid;
+                };
             }
         }
     }
@@ -112,21 +146,21 @@
 @include R.Rwd(sm) {
     header {    
         #menu {
-            width: Var.$Num10 * 1.3%;
+            width: V.$Num10 * 1.3%;
             background-color: rgb(255, 208, 0);
         }
 
         h1 {
-            width: Var.$Num10 * 8.7%;
+            width: V.$Num10 * 8.7%;
 
             // @include R.Rwd(sm) {
-            //     width: Var.$Num10 * 8.7%;
+            //     width: V.$Num10 * 8.7%;
             //     background-color: rgb(143, 188, 182);
             // }
         }
 
         ul {
-            width: Var.$Num10 * 10%;
+            width: V.$Num10 * 10%;
         }
     }
 }
@@ -134,16 +168,16 @@
 @include R.Rwd(md) {
     header {
         #menu {
-            width: Var.$Num10 * 1.3%;
+            width: V.$Num10 * 1.3%;
             background-color: rgb(140, 0, 255);
         }
 
         h1 {
-            width: Var.$Num10 * 8.7%;
+            width: V.$Num10 * 8.7%;
         }
 
         ul {
-            width: Var.$Num10 * 10%;
+            width: V.$Num10 * 10%;
         }
     }
 }
