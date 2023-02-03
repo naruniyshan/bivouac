@@ -1,0 +1,5 @@
+@use '../_01variable/variable' as V;
+@mixin WH() {
+    width: V.$Num10 * 10%;
+    height: V.$Num10 * 10%;
+}
