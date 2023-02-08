@@ -19,7 +19,7 @@
         @include JM.WH();
         position: absolute;
         z-index: V.$ZNumNeg;
-        // position: fixed;
+        position: fixed;
         top: 0;
         // background-color: wheat;
 
@@ -35,6 +35,12 @@
                 filter: alpha(opacity=0);
                 -webkit-filter: alpha(opacity=0);
                 position: absolute;
+
+                span{
+                    @include JM.WH();
+                    display: block;
+                    background-color: rgba(0, 0, 0, 0.45)
+                }
             }
             .Images1 {
                 @include Img.Images(center, cover, photo, "001.jpg");
@@ -68,8 +74,9 @@
         position: fixed;
         top: 0;
 
-        // position: absolute;
-        // z-index: V.$ZNum5;
+        position: absolute;
+        z-index: V.$ZNum5;
+        background-color: V.$Blue-Green;
 
         #menu {
             width: V.$Num10 * 1.5%;
@@ -108,123 +115,125 @@
         .ConnBox {
             display: none;
         }
+    }
 
-        nav {
+    #PhoneMenu {
+        width: V.$Num10 * 10%;
+        height: V.$Num10 * 10%;
+        // 重（層）疊順序 設定值 auto（自動） | 整數（數字越大，重（層）疊順序越上層
+        z-index: V.$ZNum99;
+        // 需配合定位點：絕對值
+        position: absolute;
+        // background-color: white;
+        display: none;
+
+        // 父框架設置定位點 relative，子物件設置定位點 absolute，系統會將「body」的原點位置，重新訂給「父框架」使用
+
+        $MenuHeaderH: V.$Num10 * 15;
+
+        #menuheader {
             width: V.$Num10 * 10%;
-            height: V.$Num10 * 10%;
-            // 重（層）疊順序 設定值 auto（自動） | 整數（數字越大，重（層）疊順序越上層
-            z-index: V.$ZNum99;
-            // 需配合定位點：絕對值
-            position: absolute;
-            // background-color: white;
+            height: calc( $MenuHeaderH * 1px );
+            // position: relative;
+            // 彈性佈局
+            display: flex;
+            // 定位點：停佇
+            position: fixed;
+            top: 0;
+            // 水平置中
+            justify-content: center;
+            // 垂直置中
+            align-items: center;
+            background-color: V.$Blue-Green;
             display: none;
 
-            // 父框架設置定位點 relative，子物件設置定位點 absolute，系統會將「body」的原點位置，重新訂給「父框架」使用
+            #close {
+                // 顯示方式：inline-block（行內區塊層級）；以內容的寬度為主
+                display: inline-block;
+                // 文字尺寸替代高度
+                font-size: 1.5rem;
+                // 內間距（留白）
+                padding: 10px;
+                // 文字變化 uppercase（全部大寫） lowercase（全部小寫） capitalize（單字的第一個字母大寫
+                text-transform: uppercase;
+                background-color: rebeccapurple;
+                
+                //small-caps 小型大寫字，會比原本的大寫還要再小再扁一些
+                // font-variant: small-caps; 
 
-            $MenuHeaderH: V.$Num10 * 15;
+                // 定位點
+                position: absolute;
+                top: 0;
+                right: 0;
 
-            #menuheader {
-                width: V.$Num10 * 10%;
-                height: calc( $MenuHeaderH * 1px );
-                // position: relative;
-                // 彈性佈局
-                display: flex;
-                // 定位點：停佇
-                position: fixed;
-                // 水平置中
-                justify-content: center;
-                // 垂直置中
-                align-items: center;
-                // background-color: V.$Blue-Green;
+                // 若與 display: inline-block 一起用，系統將會視為 display:block
+                // float:right;
 
-                #close {
-                    // 顯示方式：inline-block（行內區塊層級）；以內容的寬度為主
-                    display: inline-block;
-                    // 文字尺寸替代高度
-                    font-size: 1.5rem;
-                    // 內間距（留白）
-                    padding: 10px;
-                    // 文字變化 uppercase（全部大寫） lowercase（全部小寫） capitalize（單字的第一個字母大寫
-                    text-transform: uppercase;
-                    // background-color: rebeccapurple;
-                    
-                    //small-caps 小型大寫字，會比原本的大寫還要再小再扁一些
-                    // font-variant: small-caps; 
-
-                    // 定位點
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-
-                    // 若與 display: inline-block 一起用，系統將會視為 display:block
-                    // float:right;
-
-                    a {
-                        color: rgb(255, 255, 255);
-                        // 取消文字裝飾（底線）
-                        text-decoration: none;
-                    }
-                }
-                > h1 {
-                    font-size: 2rem;
-                    // position: absolute;
-                    // top: 50%;
-                    // left: 50%;
-                    // margin-left: -25%;
-                    // margin-top: -6%;
+                a {
+                    color: rgb(255, 255, 255);
+                    // 取消文字裝飾（底線）
+                    text-decoration: none;
                 }
             }
+            > h1 {
+                font-size: 2rem;
+                // position: absolute;
+                // top: 50%;
+                // left: 50%;
+                // margin-left: -25%;
+                // margin-top: -6%;
+            }
+        }
 
-            #menunav {
-                width: V.$Num10 * 8%;
-                // height: V.$Num10 * 6.8%;
-                // 上邊界
-                margin-top: calc( ($MenuHeaderH + 10) * 1px );
+        #menunav {
+            width: V.$Num10 * 8%;
+            // height: V.$Num10 * 6.8%;
+            // 上邊界
+            // margin-top: calc( ($MenuHeaderH + 10) * 1px );
 
-                .NH {
-                    height: 70px;
-                }
+            .NH {
+                height: 70px;
+            }
 
-                h2 {
-                    padding: 2.5px 0;
-                    border-bottom: {
-                        color: V.$Blue-Green;
-                        width: 4px;
-                        style: double;
-                    };
-                }
-                .Conn {
-                    margin-top: 20px;
-                }
-                
+            h2 {
+                padding: 2.5px 0;
+                border-bottom: {
+                    color: V.$Blue-Green;
+                    width: 4px;
+                    style: double;
+                };
+            }
+            .Conn {
+                margin-top: 20px;
             }
             
-            $MenuIconWidth: V.$Num10 * 8.5%;
-            #menuicon {
-                width: $MenuIconWidth;
-                height: V.$Num10 * 6px;
+        }
+        
+        $MenuIconWidth: V.$Num10 * 8.5%;
+        #menuicon {
+            width: $MenuIconWidth;
+            height: V.$Num10 * 6px;
 
-                // 框線 border
-                border-top: {
-                    color: V.$Blue-Green;
-                    width: 2px;
-                    // solid 實線；double 雙線；dashed 虛線；dotted 圓點虛線
-                    // inset 內陰影；outset 外陰影；groove 浮凸 ；ridge 內凹
-                    style: solid;
-                };
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                // 定位點：絕對值
-                position: absolute;
-                z-index: V.$ZNum10;
-                // 定位點：停佇
-                position: fixed;
-                bottom: 0;
+            // 框線 border
+            border-top: {
+                color: V.$Blue-Green;
+                width: 2px;
+                // solid 實線；double 雙線；dashed 虛線；dotted 圓點虛線
+                // inset 內陰影；outset 外陰影；groove 浮凸 ；ridge 內凹
+                style: solid;
+            };
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            // 定位點：絕對值
+            position: absolute;
+            z-index: V.$ZNum10;
+            // 定位點：停佇
+            position: fixed;
+            bottom: 0;
 
-                margin-left: calc( ( 100% - $MenuIconWidth ) / 2 );
-                // background-color: white;
-            }
+            margin-left: calc( ( 100% - $MenuIconWidth ) / 2 );
+            // background-color: white;
         }
     }
 
@@ -263,21 +272,57 @@
 
         // header的高 - nav>li 的 margin-top
         margin-top: $HeaderHeight + 15px;
-        nav {
-            li {
-                width: V.$Num10 * 10%;
-                height: 150px;
-                margin: 15px 0;
-                // background-color: rgb(146, 61, 61);
-                //圓角矩形
-                @include Ro.Rounded( 15px );
-                text-indent: 0;
+        .Items {
+            // li {
+            //     width: V.$Num10 * 10%;
+            //     height: 170px;
+            //     margin: 15px 0;
+            //     background-color: rgb(146, 61, 61);
+            //     //圓角矩形
+            //     @include Ro.Rounded( 15px );
+            //     font-size: 1rem * 1.2;
+            //     text-indent: 0;
 
-                // 文字水平垂直置中
-                display: flex;
-                justify-content: center;
-                align-items: center;
-            }
+            //     // 文字水平垂直置中
+            //     display: flex;
+            //     justify-content: center;
+            //     align-items: center;
+            // }
+
+            // .One {
+            //     @include Img.Images(center, cover, btn, "002.jpg");
+                
+            //     span {
+            //         width: V.$Num10 * 10%;
+            //         height: 170px;
+            //         background-color: rgba(146, 61, 61, 0.45);
+            //     }
+            // }
+
+            // .Six {
+            //     // 定位點：相對值
+            //     position: relative;
+            //     @include Img.Images(center, cover, btn, "001.jpg");
+
+            //     // 行內範圍，不會換行
+            //     span {
+            //         width: V.$Num10 * 10%;
+            //         display: inline-block;
+            //         color: white;
+            //         // 文字尺寸取代高度
+            //         font-size: 1rem * 1.3;
+            //         padding: 5px 0;
+            //         text-align: center;
+            //         // 定位點：絕對值
+            //         position: absolute;
+            //         // 靠下對齊
+            //         bottom: 0;
+            //         // rgba a=透明度 0-1（接受到小數點第二）
+            //         background-color: rgba(146, 61, 61, 0.75);
+            //         @include Ro.LRBottom(15px, 15px);
+                    
+            //     }
+            // }
         }
         .Null {
             height: 135px;
@@ -291,8 +336,9 @@
         position: fixed;
         bottom: 0;
         font-size: 0.9rem;
-        // background-color: V.$Blue-Green;
+        background-color: V.$Blue-Green;
     }
+
 }
 
 @include R.Rwd(sm) {
@@ -338,23 +384,35 @@
     // @include R.FloatBox();
 
     @include R.FlexBox();
+    #bivouac {
+        color: white;
+    }
     header {
+        // 透明效果 - 去掉背景色
+        background-color: transparent;
         .ConnBox {
             width: V.$Num10 * 10%;
             position: absolute;
-            bottom: 0;
+            bottom: 50px;
             display: block;
-            // background-color: aquamarine;
+
+            li{
+                width: V.$Num10 * 8.5%;
+            }
         }
     }
 
     main {
-        display: none;
+        
     }
 
     footer {
+        background-color: transparent;
         .ConnBox {
             display: none;
+        }
+        li {
+            text-align: center;
         }
     }
 

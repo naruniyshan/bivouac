@@ -55,6 +55,7 @@ html, body {
     height: 100%;
     position: absolute;
     z-index: -1;
+    position: fixed;
     top: 0;
   }
   #Banner ul {
@@ -71,6 +72,12 @@ html, body {
     filter: alpha(opacity=0);
     -webkit-filter: alpha(opacity=0);
     position: absolute;
+  }
+  #Banner ul li span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    background-color: rgba(0, 0, 0, 0.45);
   }
   #Banner ul .Images1 {
     background-image: url(../images/photo/001.jpg);
@@ -142,6 +149,9 @@ html, body {
     list-style-type: none;
     position: fixed;
     top: 0;
+    position: absolute;
+    z-index: 5;
+    background-color: rgb(22, 136, 111);
   }
   header #menu {
     width: 15%;
@@ -163,60 +173,63 @@ html, body {
   header .ConnBox {
     display: none;
   }
-  header nav {
+  #PhoneMenu {
     width: 100%;
     height: 100%;
     z-index: 99;
     position: absolute;
     display: none;
   }
-  header nav #menuheader {
+  #PhoneMenu #menuheader {
     width: 100%;
     height: 150px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     position: fixed;
+    top: 0;
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    background-color: rgb(22, 136, 111);
+    display: none;
   }
-  header nav #menuheader #close {
+  #PhoneMenu #menuheader #close {
     display: inline-block;
     font-size: 1.5rem;
     padding: 10px;
     text-transform: uppercase;
+    background-color: rebeccapurple;
     position: absolute;
     top: 0;
     right: 0;
   }
-  header nav #menuheader #close a {
+  #PhoneMenu #menuheader #close a {
     color: rgb(255, 255, 255);
     text-decoration: none;
   }
-  header nav #menuheader > h1 {
+  #PhoneMenu #menuheader > h1 {
     font-size: 2rem;
   }
-  header nav #menunav {
+  #PhoneMenu #menunav {
     width: 80%;
-    margin-top: 160px;
   }
-  header nav #menunav .NH {
+  #PhoneMenu #menunav .NH {
     height: 70px;
   }
-  header nav #menunav h2 {
+  #PhoneMenu #menunav h2 {
     padding: 2.5px 0;
     border-bottom-color: rgb(22, 136, 111);
     border-bottom-width: 4px;
     border-bottom-style: double;
   }
-  header nav #menunav .Conn {
+  #PhoneMenu #menunav .Conn {
     margin-top: 20px;
   }
-  header nav #menuicon {
+  #PhoneMenu #menuicon {
     width: 85%;
     height: 60px;
     border-top-color: rgb(22, 136, 111);
@@ -283,26 +296,6 @@ html, body {
     width: 85%;
     margin-top: 65px;
   }
-  #main nav li {
-    width: 100%;
-    height: 150px;
-    margin: 15px 0;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-    text-indent: 0;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
   #main .Null {
     height: 135px;
   }
@@ -312,6 +305,7 @@ html, body {
     position: fixed;
     bottom: 0;
     font-size: 0.9rem;
+    background-color: rgb(22, 136, 111);
   }
 }
 @media screen and (min-width: 576px) {
@@ -356,9 +350,6 @@ html, body {
     height: 85%;
     background-color: olivedrab;
   }
-  main nav, #main nav {
-    background-color: blueviolet;
-  }
   footer {
     width: 60%;
     height: 15%;
@@ -366,16 +357,28 @@ html, body {
     right: 0;
     bottom: 0;
   }
+  #bivouac {
+    color: white;
+  }
+  header {
+    background-color: transparent;
+  }
   header .ConnBox {
     width: 100%;
     position: absolute;
-    bottom: 0;
+    bottom: 50px;
     display: block;
   }
-  main {
-    display: none;
+  header .ConnBox li {
+    width: 85%;
+  }
+  footer {
+    background-color: transparent;
   }
   footer .ConnBox {
     display: none;
+  }
+  footer li {
+    text-align: center;
   }
 }
