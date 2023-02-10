@@ -67,10 +67,12 @@
         display: flex;
         flex-wrap: wrap;
         list-style-type: none;
+        // 1.設定階層需先寫 定位點：絕對值 階層：值 2.停佇設定
+        position: absolute;
+        z-index: V.$ZNum5;
         position: fixed;
         top: 0;
-        // position: absolute;
-        // z-index: V.$ZNum5;
+        
         background-color: V.$Blue-Green;
 
         #menu {
@@ -223,15 +225,15 @@
     }
 
     #main {
-        width: V.$Num10 * 8.5%;
+        width: V.$Num10 * 10%;
         height: V.$Num10 * 10%;
-        // position: absolute;
-        // z-index: V.$ZNum3;
+        position: absolute;
+        z-index: V.$ZNum3;
 
         // header的高 - nav>li 的 margin-top
         margin-top: $HeaderHeight + 15px;
         .Items {
-            width: V.$Num10 * 10%;
+            width: V.$Num10 * 8.5%;
             li {
                 width: V.$Num10 * 10%;
                 height: 170px;
@@ -253,7 +255,7 @@
                 height: 170px;
                 color: white;
                 @include Img.Img(center, cover, btn, "002.jpg");
-                span {
+                a {
                     width: V.$Num10 * 10%;
                     height: V.$Num10 * 10%;
                     display: flex;
@@ -262,6 +264,10 @@
                     font-size: 1rem * 1.3;
                     background-color: rgba(146, 61, 61, 0.45);
                     @include Ro.Rounded(15px);
+                    text-decoration: none;
+                }
+                a:hover {
+                    content: "";
                 }
             }
 
@@ -298,6 +304,9 @@
     footer {
         width: V.$Num10 * 10%;
         height: $FooterHeight;
+
+        position: absolute;
+        z-index: V.$ZNum5;
         // 定位點：停佇
         position: fixed;
         bottom: 0;
@@ -348,36 +357,159 @@
 @include R.Rwd(lg) {
     // @include R.FloatBox();
 
-    @include R.FlexBox();
+    // @include R.FlexBox();
     #bivouac {
+        display: flex;
+        flex-wrap: wrap;
         color: white;
-    }
-    header {
-        // 透明效果 - 去掉背景色
-        background-color: transparent;
-        .ConnBox {
-            width: V.$Num10 * 10%;
-            position: absolute;
-            bottom: 50px;
-            display: block;
 
-            li{
-                width: V.$Num10 * 8.5%;
+        header {
+            width: V.$Num10 * 4%;
+            height: V.$Num10 * 10%;
+            // background-color: brown;
+            #menu {
+                display: none;
+            }
+            // 透明效果 - 去掉背景色
+            background-color: transparent;
+            .ConnBox {
+                width: V.$Num10 * 10%;
+                position: absolute;
+                bottom: 50px;
+                display: block;
+
+                li{
+                    width: V.$Num10 * 8.5%;
+                }
             }
         }
-    }
 
-    main {
-        
-    }
+        main {
+            width: V.$Num10 * 6%;
+            height: V.$Num10 * 8.5%;
+            top: 0;
+            right: 0;
+            // background-color: olivedrab;
 
-    footer {
-        background-color: transparent;
-        .ConnBox {
-            display: none;
-        }
-        li {
-            text-align: center;
+            // header的高 - nav>li 的 margin-top
+            margin-top: 0;
+            nav {
+                width: V.$Num10 * 10%;
+                height: V.$Num10 * 10%;
+                margin-top: 50px;
+                .Items {
+                    width: V.$Num10 * 8%;
+                    height: V.$Num10 * 7%;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    align-items: center;
+                    // background-color: orange;
+                    li {
+                        width: V.$Num10 * 3%;
+                        height: V.$Num10 * 4.5%;
+                        margin: 0 5px;
+                        display: block;
+                        background-color: rgb(146, 61, 61);
+                        //圓角矩形
+                        @include Ro.Rounded( 0px );
+                        font-size: 1rem * 1.2;
+                        text-indent: 0;
+    
+                        // 文字水平垂直置中
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                    .One {    
+                        width: V.$Num10 * 3%;
+                        height: V.$Num10 * 4.5%;
+                        color: white;
+                        @include Img.Img(center, cover, btn, "002.jpg");
+                        // 行內範圍，不會換行 span
+                        // 虛擬類別 用來選擇符合特定條件的資訊，或其他簡單的選擇器所無法表達的資訊
+                        // 超連結的四種狀態（a:link-尚未瀏覽的超連結 預設 可以不用寫 link；a:hover游標移到超連結之上）
+                        // a:active 點擊超連結時  a:visited 已經瀏覽過的超連結
+                        a {
+                            width: V.$Num10 * 10%;
+                            height: V.$Num10 * 10%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 1rem * 1.3;
+                            background-color: transparent;
+                            @include Ro.Rounded(0px);
+                            text-decoration: none;
+                            color: white;
+                            span{
+                                display: none;
+                            }
+                        }
+                        a:hover {
+                            // rgba a=透明度 0-1（接受到小數點第二）
+                            background-color: rgba(168, 168, 168, 0.5);
+                            @include Ro.Rounded(0);
+                            span{
+                                display: block;
+                            }
+                        }
+                    }
+                    .Six {
+                        // 定位點：相對值
+                        position: relative;
+                        @include Img.Img(center, cover, btn, "001.jpg");
+                        // 行內範圍，不會換行
+                        span {
+                            @include JM.WH();
+                            display: inline-block;
+                            color: white;
+                            // 文字尺寸
+                            font-size: 1rem * 1.5;
+                            padding: 0;
+                            // 文字水平垂直置中
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            // rgba a=透明度 0-1（接受到小數點第二）
+                            background-color: transparent;
+                            @include Ro.Rounded(0);
+
+                            a{
+                                @include JM.WH();
+                                text-decoration: none;
+                                // 文字透明
+                                color: transparent;
+                            }
+                            a:hover {
+                                display: block;
+                                color: white;
+                                // 文字水平垂直置中
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                background-color: rgba(168, 168, 168, 0.5);
+                            }
+                        }
+                    }
+                }
+            }
+        }    
+
+        footer {
+            width: V.$Num10 * 6%;
+            height: V.$Num10 * 1.5%;
+            // 定位方式 絕對位置 依照 body 為對齊原點
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            // 透明效果 - 去掉背景色
+            background-color: transparent;
+            .ConnBox {
+                display: none;
+            }
+            li {
+                text-align: center;
+            }
         }
     }
 
