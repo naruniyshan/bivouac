@@ -1,0 +1,69 @@
+@use '../_01variable/variable' as V;
+@use '../_02mixin/01media' as Me;
+@use '../_02mixin/04Jmixin' as Jm;
+
+@include Me.Rwd(xs) {
+    .bivouac {
+        @include Jm.WH();
+        $HeaderHeight: V.$Num10 * 5px;
+        #Kogmain {
+            @include Jm.WH();
+            // 彈性佈局 - 設定框架順序位置
+            display: flex;
+            flex-wrap: wrap;
+            .KogImg {
+                @include Jm.WH();
+                order: 2;
+                background-color: aqua;
+            }
+            .KogText {
+                width: V.$Num10 * 10%;
+                order: 1;
+                margin-top: $HeaderHeight;
+                background-color: rgb(231, 176, 74);
+            }
+        }
+    }
+}
+
+@include Me.Rwd(sm) {
+    
+}
+
+@include Me.Rwd(md) {
+    
+}
+
+@include Me.Rwd(lg) {
+    .bivouac {
+        header {
+            display: none;
+        }
+        $HeaderHeight: 0;
+        #Kogmain {
+            @include Jm.WH();
+            // 彈性佈局 - 設定框架順序位置
+            display: flex;
+            background-color: orangered;
+            .KogImg {
+                width: calc( (V.$Num10 * 10%) / 3 * 1 );
+                height: 100%;
+                order: 1;
+                background-color: aqua;
+
+                > article {
+                    color: brown;
+                }
+            }
+            .KogText {
+                width: calc( (V.$Num10 * 10%) / 3 * 2 );
+                height: 100%;
+                order: 2;
+                margin-top: 0;
+                // 溢位 框架一定要設定「寬度或高度」
+                overflow-y: auto;
+                background-color: rgb(231, 176, 74);
+            }
+        }
+    }
+}
