@@ -642,6 +642,59 @@ a {
         -ms-flex-order: 2;
             order: 2;
     background-color: aqua;
+    position: relative;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner {
+    width: 100%;
+    height: 100%;
+    background-color: orangered;
+  }
+  .bivouac #Kogmain .KogImg > article {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    background-color: rgba(131, 131, 131, 0.5);
+  }
+  .bivouac #Kogmain .KogImg > article > ul > .Btn, .bivouac #Kogmain .KogImg > article > ul > .Price {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .bivouac #Kogmain .KogImg > article > li {
+    height: 150px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .bivouac #Kogmain .KogImg > article > ul {
+    margin-top: 370px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .bivouac #Kogmain .KogImg > article > ul > .Price {
+    width: 100%;
+    height: 50px;
+    font-size: 2rem;
+  }
+  .bivouac #Kogmain .KogImg > article > ul > .Btn {
+    width: 50%;
   }
   .bivouac #Kogmain .KogText {
     width: 100%;
@@ -649,7 +702,59 @@ a {
         -ms-flex-order: 1;
             order: 1;
     margin-top: 50px;
-    background-color: rgb(231, 176, 74);
+  }
+  .bivouac #Kogmain .KogText > table {
+    width: 80%;
+    margin-bottom: 50px;
+  }
+  .bivouac #Kogmain .KogText > table .NullTr {
+    height: 15px;
+  }
+  .bivouac #Kogmain .KogText > table .title {
+    font-size: 0.9rem;
+    color: rgb(134, 134, 134);
+  }
+  .bivouac #Kogmain .KogText > table span {
+    margin-right: 20px;
+  }
+  .bivouac #Kogmain .KogText > table .facility > td {
+    width: 25%;
+  }
+  .bivouac #Kogmain .KogText > .content {
+    width: 80%;
+    margin-bottom: 50px;
+  }
+  .bivouac #Kogmain .KogText > .content .title {
+    font-size: 0.9rem;
+    color: rgb(134, 134, 134);
+  }
+  .bivouac #Kogmain .KogText > .content .Poper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .bivouac #Kogmain .KogText > .content .Poper .title {
+    width: 50%;
+  }
+  .bivouac #Kogmain .KogText > .content .Poper .Text {
+    width: 50%;
+  }
+  .bivouac #Kogmain .KogText > .content .facility .title {
+    width: 100%;
+  }
+  .bivouac #Kogmain .KogText > .content .facility .Text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .bivouac #Kogmain .KogText > .content .facility .Text li {
+    width: 25%;
   }
 }
 @media screen and (min-width: 992px) {
@@ -662,7 +767,6 @@ a {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    background-color: orangered;
   }
   .bivouac #Kogmain .KogImg {
     width: 33.3333333333%;
@@ -683,6 +787,10 @@ a {
             order: 2;
     margin-top: 0;
     overflow-y: auto;
-    background-color: rgb(231, 176, 74);
+    color: black;
+  }
+  .bivouac #Kogmain .KogText > table, .bivouac #Kogmain .KogText > .content {
+    width: 50%;
+    margin-left: 20px;
   }
 }

@@ -15,12 +15,113 @@
                 @include Jm.WH();
                 order: 2;
                 background-color: aqua;
+                position: relative;
+
+                > #WebBanner {
+                    @include Jm.WH();
+                    background-color: orangered;
+                }
+
+                > article {
+                    @include Jm.WH();
+                    position: absolute;
+                    z-index: V.$ZNum3;
+                    top: 0;
+                    background-color: rgba($color: #838383, $alpha: 0.5);
+
+                    %KogAling {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    > li {
+                        height: calc( $HeaderHeight + 100px);
+                        display: flex;
+                        justify-content: center;
+                        align-items: flex-end;
+                    }
+
+                    > ul {
+                        margin-top: calc( $HeaderHeight + 320px);
+                        display: flex;
+                        flex-wrap: wrap;
+                        > .Price {
+                            width: V.$Num10 * 10%;
+                            height: V.$Num10 * 5px;
+                            @extend %KogAling;
+                            font-size: 1rem * 2;
+                        }
+                        > .Btn {
+                            width:  V.$Num10 * 5%;
+                            @extend %KogAling;
+                        }
+                    }
+                }
             }
             .KogText {
                 width: V.$Num10 * 10%;
                 order: 1;
                 margin-top: $HeaderHeight;
-                background-color: rgb(231, 176, 74);
+
+                > table {
+                    width: 80%;
+                    margin-bottom: 50px;
+                    .NullTr {
+                        height: 15px;
+                    }
+                    .title {
+                        font-size: 1rem * 0.9;
+                        color: rgb(134, 134, 134);
+                    }
+                    span {
+                        margin-right: 20px;
+                    }
+
+                    .facility {
+                        > td {
+                            width: calc( 100% / 4 );
+                        }
+                    }
+                }
+
+                > .content {
+                    width: 80%;
+                    margin-bottom: 50px;
+                    .title {
+                        font-size: 1rem * 0.9;
+                        color: rgb(134, 134, 134);
+                    }
+
+                    .Poper {
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin: {
+                            top: 15px;
+                            bottom: 15px;
+                        }
+
+                        .title {
+                            width: 50%;
+                        }
+                        .Text {
+                            width: 50%;
+                        }
+                    }
+
+                    .facility {
+                        .title {
+                            width: 100%;
+                        }
+                        .Text {
+                            display: flex;
+                            flex-wrap: wrap;
+                            li {
+                                width: calc( 100% / 4 );
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -44,7 +145,6 @@
             @include Jm.WH();
             // 彈性佈局 - 設定框架順序位置
             display: flex;
-            background-color: orangered;
             .KogImg {
                 width: calc( (V.$Num10 * 10%) / 3 * 1 );
                 height: 100%;
@@ -62,7 +162,24 @@
                 margin-top: 0;
                 // 溢位 框架一定要設定「寬度或高度」
                 overflow-y: auto;
-                background-color: rgb(231, 176, 74);
+                color: black;
+
+                // scss 繼承 %name（% 隱藏原始物件）；呼叫 @extend
+                %TabConW {
+                    width: 50%;
+                    margin-left: 20px;
+                }
+                // > table {
+                //     @extend %TabConW;
+                // }
+                // > .conten {
+                //     @extend %TabConW;
+                // }
+                // 原始 css3 的寫法
+                > table, > .content {
+                    width: 50%;
+                    margin-left: 20px;
+                }
             }
         }
     }
