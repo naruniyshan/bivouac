@@ -19,7 +19,7 @@
 
                 > #WebBanner {
                     @include Jm.WH();
-                    background-color: orangered;
+                    // background-color: orangered;
                 }
 
                 > article {
@@ -36,10 +36,27 @@
                     }
 
                     > li {
+                        width: V.$Num10 * 3.5%;
                         height: calc( $HeaderHeight + 100px);
                         display: flex;
                         justify-content: center;
                         align-items: flex-end;
+
+                        a {
+                            display: inline-block;
+                            height: 25px;
+                            font-size: 1rem * 1.1;
+                            padding: 2px;
+                        }
+                        a:hover {
+                            // 底線樣式
+                            // text-decoration-line: underline;
+                            // text-decoration-color: olivedrab;
+                            // -moz-text-decoration-color: olivedrab;
+                            // -moz-text-decoration-line: underline;
+                            // 框線
+                            border-bottom: 1px solid rgb(150, 51, 16);
+                        }
                     }
 
                     > ul {
@@ -50,11 +67,17 @@
                             width: V.$Num10 * 10%;
                             height: V.$Num10 * 5px;
                             @extend %KogAling;
-                            font-size: 1rem * 2;
+                            font-size: 1rem * 1.8;
                         }
                         > .Btn {
-                            width:  V.$Num10 * 5%;
+                            width:  V.$Num10 * 7.5%;
+                            height: 45px;
                             @extend %KogAling;
+                            font-size: 1rem * 1.3;
+                            background-color: rgb(252, 107, 54);
+                        }
+                        > .Btn:hover {
+                            background-color: rgb(211, 73, 23);
                         }
                     }
                 }
@@ -123,6 +146,27 @@
                     }
                 }
             }
+
+            #SubForm {
+                @include Jm.WH();
+                position: absolute;
+                z-index: V.$ZNum5;
+                position: fixed;
+                top: 0;
+                background-color: white;
+                display: flex;
+                flex-wrap: wrap;
+                // display: none;
+
+                > #kogform {
+                    order: 2;
+                    @include Jm.WH();
+                    background-color: rgb(255, 73, 73);
+                }
+                > .content {
+                    order: 1;
+                }
+            }
         }
     }
 }
@@ -180,6 +224,13 @@
                     width: 50%;
                     margin-left: 20px;
                 }
+            }
+            #SubForm {
+                width: 90%;
+                height: 90%;
+                // 上下 左右
+                margin: 2.5% 5%;
+                background-color: wheat;
             }
         }
     }
