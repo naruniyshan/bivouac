@@ -6,6 +6,7 @@
     .bivouac {
         @include Jm.WH();
         $HeaderHeight: V.$Num10 * 5px;
+        $HeHeight: 10 * 5px;
         #Kogmain {
             @include Jm.WH();
             // 彈性佈局 - 設定框架順序位置
@@ -156,7 +157,7 @@
                 background-color: white;
                 display: flex;
                 flex-wrap: wrap;
-                // display: none;
+                display: none;
 
                 > #kogform {
                     order: 2;

@@ -784,6 +784,7 @@ a {
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
+    display: none;
   }
   .bivouac #Kogmain #SubForm > #kogform {
     -webkit-box-ordinal-group: 3;
