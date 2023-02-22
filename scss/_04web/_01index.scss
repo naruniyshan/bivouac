@@ -16,19 +16,22 @@
 // #{} 格式，會將「變數設定為字串」的內容轉譯為「選擇器」或是「屬性名稱」
 @include R.Rwd(xs) {
     .bivouac {
+        %XSWH {
+            @include JM.WH(10%, 10%);
+        }
         #Banner {
-            @include JM.WH();
+            @extend %XSWH;
             position: absolute;
             z-index: -1;
             position: fixed;
             top: 0;
             
             ul {
-                @include JM.WH();
+                @extend %XSWH;
                 position: relative;
 
                 li {
-                    @include JM.WH();
+                    @extend %XSWH;
                     @include JM.BannerRound;
                     // 動畫格式預設值
                     opacity: 0;
@@ -37,7 +40,7 @@
                     position: absolute;
 
                     span{
-                        @include JM.WH();
+                        @extend %XSWH;
                         display: block;
                         background-color: rgba(0, 0, 0, 0.45)
                     }
@@ -82,8 +85,7 @@
                 @include Img.Images(center, contain, icons, "list.svg");
             }
             > h1 {
-                width: V.$Num10 * 8.5%;
-                height: 50px;
+                @include JM.WH(8.5%, 5px);
                 text-align: center;
                 li {
                     margin-top: calc( (50px - 32px) / 2 );
@@ -95,8 +97,7 @@
         }
     
         #PhoneMenu {
-            width: V.$Num10 * 10%;
-            height: V.$Num10 * 10%;
+            @extend %XSWH;
             // 需配合定位點：絕對值
             position: absolute;
             // 重（層）疊順序 設定值 auto（自動） | 整數（數字越大，重（層）疊順序越上層
@@ -374,7 +375,7 @@
         header {
             width: V.$Num10 * 4%;
             height: V.$Num10 * 10%;
-            // background-color: brown;
+            background-color: brown;
             #menu {
                 display: none;
             }
@@ -469,7 +470,7 @@
                         @include Img.Img(center, cover, btn, "001.jpg");
                         // 行內範圍，不會換行
                         span {
-                            @include JM.WH();
+                            @include JM.WH(10%, 10%);
                             display: inline-block;
                             color: white;
                             // 文字尺寸
@@ -484,7 +485,7 @@
                             @include Ro.Rounded(0);
 
                             a{
-                                @include JM.WH();
+                                @include JM.WH(10%, 10%);
                                 text-decoration: none;
                                 // 文字透明
                                 color: transparent;

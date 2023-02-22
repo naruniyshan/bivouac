@@ -55,22 +55,20 @@ a {
   }
 }
 @media screen and (min-width: 0px) {
-  .bivouac #Banner {
+  .bivouac #PhoneMenu, .bivouac #Banner ul li span, .bivouac #Banner ul li, .bivouac #Banner ul, .bivouac #Banner {
     width: 100%;
     height: 100%;
+  }
+  .bivouac #Banner {
     position: absolute;
     z-index: -1;
     position: fixed;
     top: 0;
   }
   .bivouac #Banner ul {
-    width: 100%;
-    height: 100%;
     position: relative;
   }
   .bivouac #Banner ul li {
-    width: 100%;
-    height: 100%;
     animation: RoundAN 25s linear infinite;
     -webkit-animation: RoundAN 25s linear infinite;
     opacity: 0;
@@ -79,8 +77,6 @@ a {
     position: absolute;
   }
   .bivouac #Banner ul li span {
-    width: 100%;
-    height: 100%;
     display: block;
     background-color: rgba(0, 0, 0, 0.45);
   }
@@ -179,8 +175,6 @@ a {
     display: none;
   }
   .bivouac #PhoneMenu {
-    width: 100%;
-    height: 100%;
     position: absolute;
     z-index: 99;
     top: 0;
@@ -430,6 +424,7 @@ a {
   .bivouac header {
     width: 40%;
     height: 100%;
+    background-color: brown;
     background-color: transparent;
   }
   .bivouac header #menu {
@@ -648,6 +643,60 @@ a {
     width: 100%;
     height: 100%;
   }
+  .bivouac #Kogmain .KogImg > #WebBanner ul {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner ul li {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    animation: RoundAN 25s linear infinite;
+    -webkit-animation: RoundAN 25s linear infinite;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -webkit-filter: alpha(opacity=0);
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner ul .I01 {
+    background-color: wheat;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner ul .I02 {
+    background-color: olive;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner ul .I03 {
+    background-color: blueviolet;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner ul .I04 {
+    background-color: orangered;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner ul .I05 {
+    background-color: hotpink;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner li:nth-child(5) {
+    -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+    display: block;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner li:nth-child(4) {
+    -webkit-animation-delay: 5s;
+            animation-delay: 5s;
+    display: block;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner li:nth-child(3) {
+    -webkit-animation-delay: 10s;
+            animation-delay: 10s;
+    display: block;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner li:nth-child(2) {
+    -webkit-animation-delay: 15s;
+            animation-delay: 15s;
+  }
+  .bivouac #Kogmain .KogImg > #WebBanner li:nth-child(1) {
+    -webkit-animation-delay: 20s;
+            animation-delay: 20s;
+    display: block;
+  }
   .bivouac #Kogmain .KogImg > article {
     width: 100%;
     height: 100%;
@@ -794,10 +843,102 @@ a {
     height: 100%;
     background-color: rgb(255, 73, 73);
   }
+  .bivouac #Kogmain #SubForm > #kogform h1 {
+    text-align: center;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > li, .bivouac #Kogmain #SubForm > #kogform > div {
+    width: 85%;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > li input, .bivouac #Kogmain #SubForm > #kogform > div input {
+    width: 100%;
+    height: 35px;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > div {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > div label {
+    font-size: 1.2rem;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > div label li {
+    margin-bottom: 10px;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > div input {
+    border-style: none;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    font-size: 1.2rem;
+    color: rgb(12, 82, 122);
+  }
+  .bivouac #Kogmain #SubForm > #kogform > div input::-webkit-input-placeholder {
+    color: rgb(12, 82, 122);
+  }
+  .bivouac #Kogmain #SubForm > #kogform > div input::-moz-placeholder {
+    color: rgb(12, 82, 122);
+  }
+  .bivouac #Kogmain #SubForm > #kogform > div input:-ms-input-placeholder {
+    color: rgb(12, 82, 122);
+  }
+  .bivouac #Kogmain #SubForm > #kogform > div input::-ms-input-placeholder {
+    color: rgb(12, 82, 122);
+  }
+  .bivouac #Kogmain #SubForm > #kogform > div input::placeholder {
+    color: rgb(12, 82, 122);
+  }
+  .bivouac #Kogmain #SubForm > #kogform > .price {
+    font-size: 1.1rem;
+    text-align: right;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > .price input {
+    text-align: right;
+    font-size: 1.3rem;
+    background-color: transparent;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > li {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > li input {
+    border-style: none;
+    outline: none;
+    font-size: 1.1rem;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > li input[type=text] {
+    background-color: transparent;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > li input[type=submit] {
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    color: white;
+    background-color: rgb(22, 124, 184);
+  }
+  .bivouac #Kogmain #SubForm > #kogform > .Date {
+    border-bottom: double 4px brown;
+  }
+  .bivouac #Kogmain #SubForm > #kogform > .Text {
+    text-align: center;
+    font-size: 0.9rem;
+  }
   .bivouac #Kogmain #SubForm > .content {
     -webkit-box-ordinal-group: 2;
         -ms-flex-order: 1;
             order: 1;
+  }
+  .bivouac #Kogmain #SubForm > .content a {
+    width: 50px;
+    height: 30px;
+    display: inline-block;
+    color: rgb(172, 7, 7);
+    font-size: 1.3rem;
+    padding: 10px;
+    position: absolute;
+    right: 0;
   }
 }
 @media screen and (min-width: 992px) {
@@ -840,6 +981,24 @@ a {
     width: 90%;
     height: 90%;
     margin: 2.5% 5%;
-    background-color: wheat;
+    background-color: rgb(247, 233, 207);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    display: none;
+  }
+  .bivouac #Kogmain #SubForm #kogform {
+    width: 33.3333333333%;
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+  .bivouac #Kogmain #SubForm .content {
+    width: 66.6666666667%;
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    color: brown;
+    overflow-y: auto;
   }
 }
